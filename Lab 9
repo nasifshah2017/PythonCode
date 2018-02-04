@@ -1,0 +1,10 @@
+setMediaPath("H:\CSC 128")
+sound1 = makeSound(getMediaPath("vote.wav"))
+sound2 = makeSound(getMediaPath("mark.wav"))
+
+def addSoundInto(sound1, sound2):
+   for sampleNmr in range(0, getLength(sound1)):
+      sample1 = getSampleValueAt(sound1, sampleNmr)
+      for sampleNmr in range(0, getLength(sound2)):
+        sample2 = getSampleValueAt(sound2, sampleNmr)
+        setSampleValueAt(sound2, sampleNmr, sample1 + sample2)

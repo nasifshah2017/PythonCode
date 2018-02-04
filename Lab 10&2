@@ -1,0 +1,74 @@
+# Syed Nasif Ali Shah (201304650)
+# Lab 10.2
+# Setting the media path
+setMediaPath("H:\CSC 128")
+
+def squareWave(freq,amplitude): 
+  # Get a blank sound
+  square = makeSound(getMediaPath("sec3silence.wav"))
+  # Set music constants
+  samplingRate = getSamplingRate(square)
+  seconds = 3 # play for 3 seconds
+  # Build tools for this wave
+  # seconds per cycle
+  interval = 1.0 * seconds / freq
+  # use float since interval is fl point
+  samplesPerCycle = interval * samplingRate
+  # we need to switch every half-cycle
+  samplesPerHalfCycle = int(samplesPerCycle / 2)
+  sampleVal = amplitude
+  s  = 1
+  i = 1
+  print samplesPerHalfCycle
+  for s in range (0, getLength(square)):
+    # if end of a half-cycle
+    if (i > samplesPerHalfCycle):
+      print "index = , ", s, " i = ", i
+      # reverse the amplitude every half-cycle
+      sampleVal *= (-1)
+      # and reinitialize the half-cycle counter
+      i = 0
+    setSampleValueAt(square,s,sampleVal)
+    i += 1
+  return(square)
+  
+# Creating a square wave
+def triangleWave(freq,amplitude): 
+  # Get a blank sound
+  triangle = makeSound(getMediaPath("sec3silence.wav"))
+  # Set music constants
+  samplingRate = getSamplingRate(triangle)
+  seconds = 3 # play for 3 seconds
+  # Build tools for this wave
+  # seconds per cycle
+  interval = 1.0 * seconds / freq
+  # use float since interval is fl point
+  samplesPerCycle = interval * samplingRate
+  # we need to switch every half-cycle
+  samplesPerHalfCycle = int(samplesPerCycle / 2)
+  sampleVal = amplitude
+  s  = 1
+  i = 1
+  print samplesPerHalfCycle
+  for s in range (0, getLength(square)):
+    # if end of a half-cycle
+    if (i > samplesPerHalfCycle):
+      print "index = , ", s, " i = ", i
+      # reverse the amplitude every half-cycle
+      sampleVal *= (-1)
+      # and reinitialize the half-cycle counter
+      i = 0
+    setSampleValueAt(triangle,s,sampleVal)
+    i += 1
+  return(triangle)
+# Adding the two waves together 
+def addWaves(sound1, sound2):
+   for sampleNmr in range(0, min(getLength(sound1),getLength(sound2))):
+      sample1 = getSampleValueAt(sound1, sampleNmr)
+      sample2 = getSampleValueAt(sound2, sampleNmr)
+      setSampleValueAt(sound2, sampleNmr, sample1 + sample2)
+# Assigning sqaure wave to variable 
+square = squareWave(5,7)
+triangle_v = triangleWave(5,7)
+addWaves(square, triangle_v)
+ 
