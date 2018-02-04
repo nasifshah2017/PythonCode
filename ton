@@ -1,0 +1,5 @@
+L = [1,2,1,0]
+for items in range (0,len(L)):
+ L = 2*len
+
+print L

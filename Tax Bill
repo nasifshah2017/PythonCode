@@ -1,0 +1,75 @@
+def taxed_bill(bill):
+ """Add 8% tax to the bill"""
+ bill_with_tax = bill + bill * .08
+ print bill_with_tax
+ return bill_with_tax
+ 
+ 
+taxed_bill(100)
+
+def tipped_bill (bill):
+ """add tips to bill"""
+ bill = bill + bill * 1.15
+ return bill
+
+print tipped_bill (108.3) 
+
+def sq_Of_Num(num):
+  """Square of a Number"""
+
+  Total = num * num
+  return Total
+
+print sq_Of_Num(3)
+
+def cube (number):
+  return number*number*number
+  
+def by_three (number):
+  if (number % 3 == 0):  
+    return cube (number)
+  else:
+     return False
+     
+     
+
+
+def pigTrans():
+  """Pig latin Translator: put the first letter to the end and then add ay"""
+  original = input("Enter a word:")
+  print original
+  if(len(original)>0 and original.isalpha()):
+    newstring = original[1:len(original)]+ original[0] + "ay"
+    print newstring
+    return newstring
+  else:
+    print "empty or contain non_letter"
+
+def is_numeric(num):
+  return type(num) == int or type(num) == float
+  
+def distance_from_zero(num):
+ if is_numeric(num):
+  return abs(num)
+ 
+ 
+def plane_cost(city):
+ if city == "Toronto":
+  return 183
+ elif city == "Ottawa":
+  return 60
+
+
+def justVowels(string):
+ for letter in string:
+  if letter in "selon":
+    print letter 
+    
+def duplicate(string):
+  pile = ""
+  for letter in string
+    pile = pile + letter + letter
+  return pile
+ 
+ else:
+   return "HOPE"
